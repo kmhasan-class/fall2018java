@@ -25,4 +25,14 @@ public class Point {
         x = x + tx;
         y = y + ty;
     }
+    
+    public void rotate(double angleInDegrees) {
+        double theta = Math.toRadians(angleInDegrees);
+        double xp = x * Math.cos(theta) - y * Math.sin(theta);
+        double yp = x * Math.sin(theta) + y * Math.cos(theta);
+        x = xp;
+        y = yp;
+    }
+    
+    // HW: write the scale method
 }
