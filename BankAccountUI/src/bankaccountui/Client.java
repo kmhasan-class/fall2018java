@@ -39,7 +39,7 @@ public class Client {
     }
     
     public String toString() {
-        return String.format("%d;%s;%s;%s\n",
+        return String.format("%d;%s;%s;%s",
                 id,
                 name.getFirstName(),
                 name.getLastName(),
