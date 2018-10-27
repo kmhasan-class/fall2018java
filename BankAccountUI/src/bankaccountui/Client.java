@@ -36,5 +36,14 @@ public class Client {
 
     public void setName(Name name) {
         this.name = name;
-    }    
+    }
+    
+    public String toString() {
+        return String.format("%d;%s;%s;%s\n",
+                id,
+                name.getFirstName(),
+                name.getLastName(),
+                dob
+        );
+    }
 }

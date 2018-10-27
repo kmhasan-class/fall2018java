@@ -47,8 +47,8 @@ public class RationalNumberTest {
         RationalNumber r1 = new RationalNumber(2, 3);
         RationalNumber expResult = new RationalNumber(1, 1);
         RationalNumber result = r1.add(r2);
-        expResult.print();
-        result.print();
+        System.out.println(expResult);
+        System.out.println(result);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -106,7 +106,7 @@ public class RationalNumberTest {
     public void testPrint() {
         System.out.println("print");
         RationalNumber instance = null;
-        instance.print();
+        System.out.println(instance);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

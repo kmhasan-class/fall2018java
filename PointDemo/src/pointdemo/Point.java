@@ -35,4 +35,11 @@ public class Point {
     }
     
     // HW: write the scale method
+    
+    public String toString() {
+        return String.format("(%.2f, %.2f)",
+                this.x, 
+                this.y
+        );
+    }
 }

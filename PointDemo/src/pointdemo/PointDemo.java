@@ -18,10 +18,8 @@ public class PointDemo {
                 p1.x, p1.y);
         
         Point p3 = new Point(4, 2);
-        System.out.printf("Before rotation x=%f, y=%f\n",
-                p3.x, p3.y);
+        System.out.printf("Before rotation %s\n", p3);
         p1.rotate(10);
-        System.out.printf("After rotation  x=%f, y=%f\n",
-                p3.x, p3.y);
+        System.out.printf("After rotation  %s\n", p3);
     }
 }

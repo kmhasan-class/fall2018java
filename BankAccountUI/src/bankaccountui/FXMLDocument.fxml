@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -9,7 +12,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="AnchorPane" prefHeight="186.0" prefWidth="279.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="bankaccountui.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="202.0" prefWidth="279.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bankaccountui.FXMLDocumentController">
    <children>
       <GridPane prefHeight="200.0" prefWidth="320.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
         <columnConstraints>
@@ -22,6 +25,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label text="Client ID" />
@@ -32,7 +36,13 @@
             <TextField fx:id="lastNameField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label text="Date of Birth" GridPane.rowIndex="3" />
             <DatePicker fx:id="dobDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" onAction="#handleAddClientAction" text="Add Client" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ToolBar GridPane.columnSpan="2" GridPane.rowIndex="4">
+               <items>
+                  <Button mnemonicParsing="false" onAction="#handleAddClientAction" text="Add Client" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Button fx:id="resetButton" mnemonicParsing="false" onAction="#handleResetAction" text="Reset" />
+               </items>
+            </ToolBar>
+            <Label fx:id="statusLabel" maxWidth="1.7976931348623157E308" prefHeight="15.0" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" />
          </children>
       </GridPane>
    </children>

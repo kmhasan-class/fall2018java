@@ -38,8 +38,11 @@ public class RationalNumber {
         return null;
     }
     
-    public void print() {
-        System.out.printf("%d/%d\n", numerator, denominator);
+    public String toString() {
+        return String.format("%d/%d\n", 
+                numerator, 
+                denominator
+        );
     }
     
     public boolean equals(Object o) {
