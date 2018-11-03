@@ -54,7 +54,8 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         readFile();
-        printClients();
+        //printClients();
+        accountDemo();
     }
 
     
@@ -158,6 +159,27 @@ public class FXMLDocumentController implements Initializable {
         System.out.println("");
         
         //clientList.forEach(System.out::println);
+    }
+
+    private void accountDemo() {
+        BankAccount a = new BankAccount(111, clientList.get(0), 1000);
+        CurrentAccount b = new CurrentAccount(112, clientList.get(0), 1000);
+        CurrentAccount2 c = new CurrentAccount2(113, clientList.get(0), 1000);
+
+        System.out.println("Before widthrawal");
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+        
+        a.withdraw(500);
+        b.withdraw(500);
+        c.withdraw(500);
+        
+        System.out.println("After widthrawal");
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+        
     }
 
 }
