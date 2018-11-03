@@ -1,4 +1,6 @@
-package bankaccountui;
+package bankaccountui.account;
+
+import bankaccountui.Client;
 
 public class CurrentAccount2 extends BankAccount {
     public CurrentAccount2(int id, Client client, double balance) {

@@ -5,6 +5,10 @@
  */
 package bankaccountui;
 
+import bankaccountui.account.CreditCard;
+import bankaccountui.account.CurrentAccount2;
+import bankaccountui.account.CurrentAccount;
+import bankaccountui.account.BankAccount;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
@@ -162,24 +166,55 @@ public class FXMLDocumentController implements Initializable {
     }
 
     private void accountDemo() {
+        double totalBalance = 0;
+        
+        ArrayList<BankAccount> accountList = new ArrayList<>();
+        
         BankAccount a = new BankAccount(111, clientList.get(0), 1000);
         CurrentAccount b = new CurrentAccount(112, clientList.get(0), 1000);
         CurrentAccount2 c = new CurrentAccount2(113, clientList.get(0), 1000);
-
+        CreditCard d = new CreditCard(114, clientList.get(0), 50000);
+        
+        accountList.add(a);
+        accountList.add(c);
+        accountList.add(d);
+        
+        totalBalance = 0;
+        for (BankAccount bankAccount : accountList)
+            totalBalance += bankAccount.getBalance();
+        
         System.out.println("Before widthrawal");
         System.out.println(a);
         System.out.println(b);
         System.out.println(c);
-        
+        System.out.println(d);
+        System.out.printf("Total balance = %.2f\n", totalBalance);
+
+        /*
         a.withdraw(500);
         b.withdraw(500);
         c.withdraw(500);
+        d.withdraw(500);
+        */
+        
+        for (BankAccount bankAccount : accountList)
+            bankAccount.withdraw(500);
+        
+        totalBalance = 0;
+        for (BankAccount bankAccount : accountList)
+            totalBalance += bankAccount.getBalance();
+
+//        totalBalance = a.getBalance() 
+//                + b.getBalance() 
+//                + c.getBalance() 
+//                + d.getBalance();
         
         System.out.println("After widthrawal");
         System.out.println(a);
         System.out.println(b);
         System.out.println(c);
-        
+        System.out.println(d);
+        System.out.printf("Total balance = %.2f\n", totalBalance);
     }
 
 }

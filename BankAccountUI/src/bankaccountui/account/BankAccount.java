@@ -1,16 +1,18 @@
-package bankaccountui;
+package bankaccountui.account;
 
+import bankaccountui.Client;
+import bankaccountui.Name;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class CurrentAccount {
+public class BankAccount {
     private int id;
     private Client client;
-    private double balance;
+    protected double balance;
     private LocalDateTime accountCreationDateTime;
-   
+    
     // copy constructor
-    public CurrentAccount(CurrentAccount that) {
+    public BankAccount(BankAccount that) {
         this.id = that.id;
         this.client = new Client(that.client.getId(),
                 new Name(that.client.getName().getFirstName(),
@@ -28,17 +30,17 @@ public class CurrentAccount {
                         that.accountCreationDateTime.getHour(), 
                         that.accountCreationDateTime.getMinute(), 
                         that.accountCreationDateTime.getSecond()
-                );        
+                );
     }
     
-    public CurrentAccount(int id, Client client) {
+    public BankAccount(int id, Client client) {
         this.id = id;
         this.client = client;
-        balance = 0;
+        this.balance = 0;
         this.accountCreationDateTime = LocalDateTime.now();
     }
 
-    public CurrentAccount(int id, Client client, double balance) {
+    public BankAccount(int id, Client client, double balance) {
         this.id = id;
         this.client = client;
         this.balance = balance;
@@ -57,8 +59,11 @@ public class CurrentAccount {
         return balance;
     }
     
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+    
     public void withdraw(double amount) {
-        amount = amount * 1.01;
         if (amount <= balance && amount > 0)
             balance = balance - amount;
     }
@@ -67,9 +72,9 @@ public class CurrentAccount {
         if (amount > 0)
             balance = balance + amount;
     }
-
+    
     public String toString() {
         return String.format("%d;%s;%.2f;%s",
                 id, client, balance, accountCreationDateTime);
-    }    
+    }
 }

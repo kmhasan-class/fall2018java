@@ -1,16 +1,18 @@
-package bankaccountui;
+package bankaccountui.account;
 
+import bankaccountui.Client;
+import bankaccountui.Name;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class BankAccount {
+public class CurrentAccount {
     private int id;
     private Client client;
     private double balance;
     private LocalDateTime accountCreationDateTime;
-    
+   
     // copy constructor
-    public BankAccount(BankAccount that) {
+    public CurrentAccount(CurrentAccount that) {
         this.id = that.id;
         this.client = new Client(that.client.getId(),
                 new Name(that.client.getName().getFirstName(),
@@ -28,17 +30,17 @@ public class BankAccount {
                         that.accountCreationDateTime.getHour(), 
                         that.accountCreationDateTime.getMinute(), 
                         that.accountCreationDateTime.getSecond()
-                );
+                );        
     }
     
-    public BankAccount(int id, Client client) {
+    public CurrentAccount(int id, Client client) {
         this.id = id;
         this.client = client;
-        this.balance = 0;
+        balance = 0;
         this.accountCreationDateTime = LocalDateTime.now();
     }
 
-    public BankAccount(int id, Client client, double balance) {
+    public CurrentAccount(int id, Client client, double balance) {
         this.id = id;
         this.client = client;
         this.balance = balance;
@@ -58,6 +60,7 @@ public class BankAccount {
     }
     
     public void withdraw(double amount) {
+        amount = amount * 1.01;
         if (amount <= balance && amount > 0)
             balance = balance - amount;
     }
@@ -66,9 +69,9 @@ public class BankAccount {
         if (amount > 0)
             balance = balance + amount;
     }
-    
+
     public String toString() {
         return String.format("%d;%s;%.2f;%s",
                 id, client, balance, accountCreationDateTime);
-    }
+    }    
 }
